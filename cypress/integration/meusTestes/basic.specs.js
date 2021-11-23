@@ -7,9 +7,9 @@ describe('Cypress basics', () => {
         cy.visit('http://demo.automationtesting.in/Register.html')
     })
 
- //   beforeEach(() => {
- //       cy.reload()
- //   })
+    beforeEach(() => {
+        cy.reload()
+    })
 
     it('Should visit a page and assert title', () => {
        
@@ -20,6 +20,13 @@ describe('Cypress basics', () => {
         cy.title().should('be.equal', 'Register')
 
          }
+    )
+
+    it('TextFields', () => {
+        cy.get(':nth-child(1) > :nth-child(2) > .form-control').type('Cypress')
+        cy.get(':nth-child(1) > :nth-child(2) > .form-control').should('have.value','Cypress')
+    }
+
     )
     
     it('Should find and interact  with an element', () => {
@@ -33,12 +40,7 @@ describe('Cypress basics', () => {
 
     )
 
-    it.only('TextFields', () => {
-        cy.get(':nth-child(1) > :nth-child(2) > .form-control').type('Cypress')
-        cy.get(':nth-child(1) > :nth-child(2) > .form-control').should('have.value','Cypress')
-    }
 
-    )
 }
 
 )
