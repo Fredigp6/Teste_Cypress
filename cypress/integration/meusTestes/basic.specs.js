@@ -7,9 +7,9 @@ describe('Cypress basics', () => {
         cy.visit('http://demo.automationtesting.in/Register.html')
     })
 
-    beforeEach(() => {
-        cy.reload()
-    })
+ //   beforeEach(() => {
+ //       cy.reload()
+ //   })
 
     it('Should visit a page and assert title', () => {
        
@@ -29,6 +29,13 @@ describe('Cypress basics', () => {
         
         cy.get('body').should('contain', 'Double Click on Edit')
 
+    }
+
+    )
+
+    it.only('TextFields', () => {
+        cy.get(':nth-child(1) > :nth-child(2) > .form-control').type('Cypress')
+        cy.get(':nth-child(1) > :nth-child(2) > .form-control').should('have.value','Cypress')
     }
 
     )
